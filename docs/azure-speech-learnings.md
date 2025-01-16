@@ -20,3 +20,7 @@ It is unclear how it works when multiple languages are being spoken in a convers
 
 * [Install and run speech container](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-howto)
 * [Speech-to-text container](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-stt?tabs=container&pivots=programming-language-python)
+
+## Extra
+
+If you're looking for a fun example of speech-to-text, check out my [send message project](https://github.com/meganbloemsma/send-message). Based on the 'Sending' spell in Dungeons and Dragons,  it records your message real-time and transcribes it to text - capping it at 25 words.
