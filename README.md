@@ -1,35 +1,23 @@
-# ✏️WIP: AI on-the-edge
+# AI on the Edge
 
-Learnings on containerizing (Azure) AI models and running them locally/hybrid.
+This repository contains learnings on **containerizing Azure AI models** and running them in local or hybrid environments. This is a **living repository**, meaning it will be updated over time as I gain more experience with containerizing specific AI models.
 
-Examples:
+- The `src/` folder contains quickstart examples for Azure AI models, including installation instructions (if applicable).  
+- The `docs/` folder contains in-depth learnings, organized by Azure AI service.
 
-* Containerizing Azure Speech
-* *note to self:* do I need some kind of POC or code that showcases how it works?
+## General Learnings
 
-## Containerizing Azure Speech: lessons learned
+Microsoft provides official [documentation](https://learn.microsoft.com/en-us/azure/ai-services/containers/container-faq) on how to containerize Azure AI services. 
 
-*Lessons learned from ASD 09/01/2025.*
+This repository complements that with hands-on insights and practical examples.
 
-Original POC (on the cloud) used Azure Speech to do language detection + speech-to-text. This was quick to setup and worked well but we noticed some latency in the translations, which was not ideal for our use case.
+## Detailed Insights per Service
 
-So we tried [containerizing Azure Speech](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-howto) to see whether the latency would improve.
+| Azure AI Service | Documentation Link                                   | Status    |
+|------------------|-------------------------------------------------------|-----------|
+| Azure Speech     | [Azure Speech Learnings](docs/azure-speech-learnings.md) | In Progress |
+| *TBD* | *TBD*                          | *Planned*  |
 
-The Azure Speech container version is different than the cloud version. For starters, it requires two services instead of one to achieve the same POC:
+---
 
-* Azure Language (containerized) for language detection
-* Azure Speech (containerized) for speech-to-text
-
-Secondly, for input detection it recognized *only US english (en-US)*. Even after removing all autodetect functionality from our code it is unable to detect any other language.
-
-The container is quite large: about 8+ GB. This means the deployment of the container takes quite some time. Depending on your use case, this could be a blocker.
-That being said, there are some things you can try to decrease the size, such as selecting which languages it should detect up front (instead of loading all languages).
-
-It is unclear how it works when multiple languages are being spoken in a conversation. Unable to test yet, as the input detection was en-US only.
-
-In this example we did not use GSpeech for audio input.
-
-### Documentation used
-
-* [Install and run speech container](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-howto)
-* [Speech-to-text container](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-stt?tabs=container&pivots=programming-language-python)
+Feel free to explore the resources and check back for updates as new services and insights are added. If you'd like to share your own learnings, please create a pull request.
