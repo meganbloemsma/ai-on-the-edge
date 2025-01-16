@@ -7,9 +7,11 @@ This repository contains learnings on **containerizing Azure AI models** and run
 
 ## General Learnings
 
-Microsoft provides official [documentation](https://learn.microsoft.com/en-us/azure/ai-services/containers/container-faq) on how to containerize Azure AI services. 
+Microsoft provides official [documentation](https://learn.microsoft.com/en-us/azure/ai-services/containers/container-faq) on how to containerize Azure AI services. However, it can differ per service what the set-up looks like and whether there are differences from the Azure service variant.
 
-This repository complements that with hands-on insights and practical examples.
+For example, Azure Speech contains language detection and speech-to-text when deployed on Azure. But when you use the container version language detection is not included and you need a separate container service.
+
+This repository complements the official resources with hands-on insights and practical examples.
 
 ## Detailed Insights per Service
 

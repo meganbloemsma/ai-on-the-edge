@@ -1,6 +1,6 @@
-*Lessons learned from ASD 09/01/2025.*
+# Azure Speech container learnings
 
-Original POC (on the cloud) used Azure Speech to do language detection + speech-to-text. This was quick to setup and worked well but we noticed some latency in the translations, which was not ideal for our use case.
+Original POC (on the cloud) used Azure Speech to do language detection + speech-to-text. This was [quick to setup](src/azure-speech-quickstart.py) and worked well but we noticed some latency in the translations, which was not ideal for our use case.
 
 So we tried [containerizing Azure Speech](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-howto) to see whether the latency would improve.
 
@@ -14,11 +14,9 @@ Secondly, for input detection it recognized *only US english (en-US)*. Even afte
 The container is quite large: about 8+ GB. This means the deployment of the container takes quite some time. Depending on your use case, this could be a blocker.
 That being said, there are some things you can try to decrease the size, such as selecting which languages it should detect up front (instead of loading all languages).
 
-It is unclear how it works when multiple languages are being spoken in a conversation. Unable to test yet, as the input detection was en-US only.
+It is unclear how it works when multiple languages are being spoken in a conversation. We have been unable to test yet, because of the time it took to figure out the input language detection issue.
 
-In this example we did not use GSpeech for audio input.
-
-### Documentation used
+## Documentation used
 
 * [Install and run speech container](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-howto)
 * [Speech-to-text container](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-container-stt?tabs=container&pivots=programming-language-python)
